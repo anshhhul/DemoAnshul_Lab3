@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('Compile') {
+            steps {
+                script {
+                    dir('src') {
+                        sh 'javac App.java'
+                    }
+                }
+            }
+        }
+        stage('Run') {
+            steps {
+                script {
+                    dir('src') {
+                        sh 'java App'
+                    }
+                }
+            }
+        }
+    }
+}
+
